@@ -16,6 +16,7 @@ autoflake = "*"
 
 [packages]
 django = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
