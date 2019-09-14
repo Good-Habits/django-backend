@@ -8,6 +8,7 @@ security:
 	pipenv check
 
 formatting:
+	pipenv run isort -rc src
 	pipenv run black src
 
 linting:

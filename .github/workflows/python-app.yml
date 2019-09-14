@@ -39,8 +39,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Black Code Formatting
-        run: black --check src
+      - name: Formatting
+        run: |
+          isort -rc src --check-only
+          black --check src
 
       - name: Pylint Code Quality
         run: pylint src/*

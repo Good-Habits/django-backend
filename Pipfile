@@ -11,6 +11,7 @@ black = "*"
 mypy = "*"
 pylint = "*"
 pytest-cov = "*"
+isort = {extras = ["pipfile"],version = "*"}
 
 [packages]
 django = "*"
