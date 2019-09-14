@@ -11,7 +11,6 @@ black = "*"
 mypy = "*"
 pylint = "*"
 pytest-cov = "*"
-pre-commit = "*"
 
 [packages]
 django = "*"
