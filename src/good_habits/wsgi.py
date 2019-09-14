@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "good_habits.settings")
 
 application = get_wsgi_application()  # pylint: disable=C0103
