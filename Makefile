@@ -9,6 +9,7 @@ security:
 
 formatting:
 	pipenv run isort -rc src
+	pipenv run autoflake --in-place --remove-all-unused-imports -r src
 	pipenv run black src
 
 linting:
