@@ -36,17 +36,18 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install isort black mypy pylint
+          pip install pipenv
+          pipenv install --dev --skip-lock
 
       - name: Formatting
         run: |
-          isort -rc src --check-only
-          black --check src
+          pipenv run isort -rc src --check-only
+          pipenv run black --check src
       - name: Pylint Code Quality
-        run: pylint src/*
+        run: pipenv run pylint src/*
 
       - name: MyPy Type Hinting
-        run: mypy src
+        run: pipenv run mypy src
 
   test:
     runs-on: ubuntu-latest
@@ -64,11 +65,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install --dev --skip-lock
-          pipenv run pip freeze > req.txt
-          pip install -r req.txt
 
       - name: Unit Test
         env:
           PYTHONPATH: src
           DJANGO_SECRET: testing
-        run: pytest -m unit
+        run: pipenv run pytest -m unit
