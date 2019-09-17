@@ -37,12 +37,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --ignore-pipfile --dev
+          pipenv install --dev --system
 
       - name: Formatting
         run: |
-          pipenv run isort -rc src --check-only
-          pipenv run black --check src
+          isort -rc src --check-only
+          black --check src
       - name: Pylint Code Quality
         run: pylint src/*
 
@@ -64,10 +64,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --ignore-pipfile --dev
+          pipenv install --dev --system
 
       - name: Unit Test
         env:
           PYTHONPATH: src
           DJANGO_SECRET: testing
-        run: pipenv run pytest -m unit
+        run: pytest -m unit
