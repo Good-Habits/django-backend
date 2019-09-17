@@ -44,6 +44,8 @@ jobs:
           pipenv run isort -rc src --check-only
           pipenv run black --check src
       - name: Pylint Code Quality
+        env:
+          PYTHONPATH: src
         run: pipenv run pylint src/*
 
       - name: MyPy Type Hinting
