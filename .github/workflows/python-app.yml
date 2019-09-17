@@ -43,13 +43,15 @@ jobs:
         run: |
           pipenv run isort -rc src --check-only
           pipenv run black --check src
-      - name: Pylint Code Quality
-        env:
-          PYTHONPATH: src
-        run: pipenv run pylint src/*
 
       - name: MyPy Type Hinting
         run: pipenv run mypy src
+
+      - name: Pylint Code Quality
+        env:
+          PYTHONPATH: src
+          DJANGO_SECRET: testing
+        run: pipenv run pylint src/*
 
   test:
     runs-on: ubuntu-latest
