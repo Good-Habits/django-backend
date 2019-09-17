@@ -18,7 +18,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install --ignore-pipfile --dev
-
   security:
     runs-on: ubuntu-latest
     needs: install
@@ -31,7 +30,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv check
-
   quality:
     runs-on: ubuntu-latest
     needs: install
@@ -43,7 +41,6 @@ jobs:
         run: |
           isort -rc src --check-only
           black --check src
-
       - name: Pylint Code Quality
         run: pylint src/*
 
