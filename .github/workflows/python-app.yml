@@ -37,7 +37,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --dev --system
+          sudo pipenv install --dev --system
 
       - name: Formatting
         run: |
@@ -64,7 +64,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --dev --system
+          sudo pipenv install --dev --system
 
       - name: Unit Test
         env:
