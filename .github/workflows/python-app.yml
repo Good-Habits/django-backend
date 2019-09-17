@@ -35,9 +35,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo python -m pip install --upgrade pip
-          sudo pip install pipenv
-          sudo pipenv install --dev --system
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv run pip freeze > req.txt
+          pip install -r req.txt
 
       - name: Formatting
         run: |
@@ -62,9 +63,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo python -m pip install --upgrade pip
-          sudo pip install pipenv
-          sudo pipenv install --dev --system
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv run pip freeze > req.txt
+          pip install -r req.txt
 
       - name: Unit Test
         env:
